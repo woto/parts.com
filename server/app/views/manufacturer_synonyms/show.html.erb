@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @manufacturer_synonym.title %>
+</p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @manufacturer_synonym.manufacturer.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_manufacturer_synonym_path(@manufacturer_synonym) %> |
+<%= link_to 'Back', manufacturer_synonyms_path %>

@@ -1,0 +1,14 @@
+<%= simple_form_for(@manufacturer_synonym) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :title %>
+    <br />
+    <%= f.association :manufacturer %>
+  </div>
+
+  <br />
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  catalog_number: MD136466
+  manufacturer: Mitsubishi
+  price: 1
+  price_checked: 2011-09-26 23:34:00
+  price_updated: 2011-09-26 23:34:00
+
+two:
+  catalog_number: JEY0143029A
+  manufacturer: Mazda
+
+three:
+  catalog_number: MZ690072 
+  manufacturer: Mitsubishi
+
+four:
+  catalog_number: 123
+  manufacturer: Toyota
+
+five:
+  catalog_number: 666
+  manufacturer: Non-Existent
+
+six:
+  catalog_number: MD136466  
+  manufacturer: Hyundai
+
+seven:
+  catalog_number: 5327144010
+  manufacturer: Toyota
+
+eight:
+  catalog_number: 9008091173
+  manufacturer: Toyota
+
+nine:
+  catalog_number: 4720133401
+  manufacturer: Toyota

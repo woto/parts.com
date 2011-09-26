@@ -1,4 +1,10 @@
 Server::Application.routes.draw do
+  resources :parts
+
+  resources :manufacturers
+
+  resources :manufacturer_synonyms
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

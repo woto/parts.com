@@ -1,0 +1,120 @@
+Acura:
+  parts_com_id: 1
+  title: Acura
+Lexus:
+  parts_com_id: 20
+  title: Lexus
+Audi:
+  parts_com_id: 2
+  title: Audi
+Lincoln:
+  parts_com_id: 21
+  title: Lincoln
+BMW:
+  parts_com_id: 3
+  title: BMW
+Mazda:
+  parts_com_id: 22
+  title: Mazda
+Buick:
+  parts_com_id: 4
+  title: Buick
+Mercedes:
+  parts_com_id: 67
+  title: Mercedes
+Cadillac:
+  parts_com_id: 5
+  title: Cadillac
+Mercury:
+  parts_com_id: 23
+  title: Mercury
+Chevy:
+  parts_com_id: 6
+  title: Chevy
+Mini:
+  parts_com_id: 1001
+  title: Mini
+Chrysler:
+  parts_com_id: 7
+  title: Chrysler
+Mitsubishi:
+  parts_com_id: 24
+  title: Mitsubishi
+Dodge:
+  parts_com_id: 8
+  title: Dodge
+Nissan:
+  parts_com_id: 25
+  title: Nissan
+Eagle:
+  parts_com_id: 9
+  title: Eagle
+Oldsmobile:
+  parts_com_id: 26
+  title: Oldsmobile
+Ford:
+  parts_com_id: 10
+  title: Ford
+Plymouth:
+  parts_com_id: 27
+  title: Plymouth
+GMC:
+  parts_com_id: 11
+  title: GMC
+Pontiac:
+  parts_com_id: 28
+  title: Pontiac
+Honda:
+  parts_com_id: 12
+  title: Honda
+Porsche:
+  parts_com_id: 29
+  title: Porsche
+Hummer:
+  parts_com_id: 1000
+  title: Hummer
+Saab:
+  parts_com_id: 30
+  title: Saab
+Hyundai:
+  parts_com_id: 13
+  title: Hyundai
+Saturn:
+  parts_com_id: 31
+  title: Saturn
+Infiniti:
+  parts_com_id: 14
+  title: Infiniti
+Scion:
+  parts_com_id: 37
+  title: Scion
+Isuzu:
+  parts_com_id: 15
+  title: Isuzu
+Subaru:
+  parts_com_id: 32
+  title: Subaru
+Jaguar:
+  parts_com_id: 16
+  title: Jaguar
+Suzuki:
+  parts_com_id: 33
+  title: Suzuki
+Jeep:
+  parts_com_id: 17
+  title: Jeep
+Toyota:
+  parts_com_id: 34
+  title: Toyota
+Kia:
+  parts_com_id: 18
+  title: Kia
+Volvo:
+  parts_com_id: 36
+  title: Volvo
+LandRover:
+  parts_com_id: 19
+  title: LandRover
+VW:
+  parts_com_id: 35
+  title: VW

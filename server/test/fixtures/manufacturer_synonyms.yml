@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+Toyota:
+  title: Toyota
+  manufacturer: Toyota
+
+TOYOTA:
+  title: TOYOTA
+  manufacturer: Toyota
+
+TY:
+  title: TY
+  manufacturer: Toyota

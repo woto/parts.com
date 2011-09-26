@@ -27,4 +27,9 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug'
-
+gem 'mechanize'
+gem 'delayed_job'
+gem 'delayed_job_admin'
+gem 'simple_form'
+gem 'formtastic'
+gem 'rails-i18n'

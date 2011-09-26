@@ -1,0 +1,24 @@
+ru:
+  simple_form:
+    labels:
+      manufacturer_synonym:
+        title: Синоним
+        manufacturer: Производитель
+      manufacturer:
+        title: Производитель
+        parts_com_id: ID производителя
+      part:
+        manufacturer: Производитель
+        price: Цена
+        catalog_number: Каталожный номер
+        price_checked: Последняя проверка
+        price_updated: Последнее обновление
+    hints:
+      manufacturer:
+        parts_com_id: ID производителя с parts.com
+      manufacturer_synonym:
+        title: Например Toyota, TOYOTA, TY, Тойота    
+        manufacturer: Производитель, к которому будет привязан синоним
+      part:
+        manufacturer: ""
+        
