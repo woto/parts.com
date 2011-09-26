@@ -1,0 +1,12 @@
+<h1>Processing#new</h1>
+
+<%= simple_form_for(@processing, :url => '/processing/create/') do |f| %>
+  <div class="inputs">
+    <%= f.input :fields %>
+  </div>
+
+  <br />
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

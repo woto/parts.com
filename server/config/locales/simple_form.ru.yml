@@ -1,6 +1,8 @@
 ru:
   simple_form:
     labels:
+      processing:
+        fields: Каталожных номеров за раз
       manufacturer_synonym:
         title: Синоним
         manufacturer: Производитель
@@ -21,4 +23,5 @@ ru:
         manufacturer: Производитель, к которому будет привязан синоним
       part:
         manufacturer: ""
-        
+      processing:
+        fields: Внимание, данное поле может повлиять на блокировку сервера со стороны parts.com  
