@@ -12,8 +12,7 @@
           #js_navigation= render_navigation(:expand_all => true)
           .content
             .breadcrumbs
-              .title breadcrumbs:
-              = render_navigation(:renderer => :breadcrumbs, :join_with => ' &raquo; ')
+              = render_navigation(:renderer => :breadcrumbs, :join_with => '&nbsp;::&nbsp;')
               = yield
           .clear_float
 

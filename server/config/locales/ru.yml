@@ -1,24 +1,22 @@
 ru:
-  Listing parts: Список автозапчастей
+  Parts: Автозапчасти
+  Manufacturer synonyms: Синонимы производителей
+  Manufacturers: Производители
+  Manufacturers from parts_com: Производители с parts.com
   Catalog number: Каталожный номер
-  Manufacturer: Производитель
+  Parts_com id: ID с parts.com
   Price: Цена
   Price checked: Дата последней проверки
   Price updated: Дата последнего изменения
-  Listing manufacturers: Список производителей
-  New Manufacturer: Новый производитель
   New manufacturer: Новый производитель
-  New manufacturer_synonym: Новый синоним производителя
-  New Manufacturer synonym: Новый синоним производителя
-  Listing manufacturer_synonyms: Список синонимов производителей
+  New manufacturer synonym: Новый синоним производителя
   New part: Новая автозапчасть
-  New Part: Новая автозапчасть
-  manufacturers:
-    index:
-      Parts com: ID с parts.com
-      Title: Производитель 
-  manufacturer_synonyms:
-    index:
-      Title: Синоним
-      Manufacturer: Производитель
+  Editing part: Редактирование автозапчасти
+  Editing manufacturer: Редактирование производителя
+  Editing manufacturer synonym: Редактирование синонима производителя
+  Manufacturer: Производитель
+  Manufacturer synonym: Синоним
   Back: Назад
+  Edit: Редактировать
+  Show: Просмотреть
+  Destroy: Удалить

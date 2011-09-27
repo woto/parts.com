@@ -32,11 +32,11 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :mkey_1, t('Manufacturers'), '' do |sub_nav|
-      sub_nav.item :mkey_1_1, t('Manufacturers'), manufacturers_path
-      sub_nav.item :meky_1_2, t('Manufacturer Synonyms'), manufacturer_synonyms_path
+    primary.item :mkey_1, t('Manufacturers'), '#', :highlights_on => /never/ do |sub_nav|
+      sub_nav.item :mkey_1_1, t('Manufacturers from parts_com'), manufacturers_path, :highlights_on => /manufacturers/
+      sub_nav.item :meky_1_2, t('Manufacturer synonyms'), manufacturer_synonyms_path, :highlights_on => /manufacturer_synonyms/
     end
-    primary.item :mkey_2, t('Parts'), parts_path
+    primary.item :mkey_2, t('Parts'), parts_path, :highlights_on => /parts/
     primary.item :mkey_3, t('Processing'), processing_new_path
     primary.item :mkey_4, t('Delayed Job Admin'), delayed_job_admin_path
 

@@ -1,9 +1,9 @@
-<h1><%= t('Listing manufacturers') %></h1>
+<h1><%= t('Manufacturers from parts_com') %></h1>
 
 <table>
   <tr>
-    <th><%= t('.Parts com') %></th>
-    <th><%= t('.Title') %></th>
+    <th><%= t('Parts_com id') %></th>
+    <th><%= t('Manufacturer') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,13 +13,13 @@
   <tr>
     <td><%= manufacturer.parts_com_id %></td>
     <td><%= manufacturer.title %></td>
-    <td><%= link_to 'Show', manufacturer %></td>
-    <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
-    <td><%= link_to 'Destroy', manufacturer, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to t('Show'), manufacturer %></td>
+    <td><%= link_to t('Edit'), edit_manufacturer_path(manufacturer) %></td>
+    <td><%= link_to t('Destroy'), manufacturer, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to t('New Manufacturer'), new_manufacturer_path %>
+<%= link_to t('New manufacturer'), new_manufacturer_path %>

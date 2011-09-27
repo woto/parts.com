@@ -1,30 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Catalog number:</b>
+  <b><%= t('Catalog number') %>:</b>
   <%= @part.catalog_number %>
 </p>
 
 <p>
-  <b>Manufacturer:</b>
-  <%= @part.manufacturer %>
+  <b><%= t('Manufacturer') %>:</b>
+  <%= @part.manufacturer.title %>
 </p>
 
 <p>
-  <b>Price:</b>
+  <b><%= t('Price') %>:</b>
   <%= @part.price %>
 </p>
 
 <p>
-  <b>Price checked:</b>
+  <b><%= t('Price checked') %>:</b>
   <%= @part.price_checked %>
 </p>
 
 <p>
-  <b>Price updated:</b>
+  <b><%= t('Price updated') %>:</b>
   <%= @part.price_updated %>
 </p>
 
 
-<%= link_to 'Edit', edit_part_path(@part) %> |
-<%= link_to 'Back', parts_path %>
+<%= link_to t('Edit'), edit_part_path(@part) %> |
+<%= link_to t('Back'), parts_path %>

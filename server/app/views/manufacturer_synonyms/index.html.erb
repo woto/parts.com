@@ -1,9 +1,9 @@
-<h1><%= t('Listing manufacturer_synonyms') %></h1>
+<h1><%= t('Manufacturer synonyms') %></h1>
 
 <table>
   <tr>
-    <th><%= t('.Title') %></th>
-    <th><%= t('.Manufacturer') %></th>
+    <th><%= t('Manufacturer synonym') %></th>
+    <th><%= t('Manufacturer') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,13 +13,13 @@
   <tr>
     <td><%= manufacturer_synonym.title %></td>
     <td><%= manufacturer_synonym.manufacturer.title %></td>
-    <td><%= link_to 'Show', manufacturer_synonym %></td>
-    <td><%= link_to 'Edit', edit_manufacturer_synonym_path(manufacturer_synonym) %></td>
-    <td><%= link_to 'Destroy', manufacturer_synonym, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to t('Show'), manufacturer_synonym %></td>
+    <td><%= link_to t('Edit'), edit_manufacturer_synonym_path(manufacturer_synonym) %></td>
+    <td><%= link_to t('Destroy'), manufacturer_synonym, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to t('New Manufacturer synonym'), new_manufacturer_synonym_path %>
+<%= link_to t('New manufacturer synonym'), new_manufacturer_synonym_path %>

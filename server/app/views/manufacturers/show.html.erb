@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Parts com:</b>
+<b><%= t('Parts_com id') %>:</b>
   <%= @manufacturer.parts_com_id %>
 </p>
 
 <p>
-  <b>Title:</b>
+  <b><%= t('Manufacturer') %>:</b>
   <%= @manufacturer.title %>
 </p>
 
 
-<%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
-<%= link_to 'Back', manufacturers_path %>
+<%= link_to t('Edit'), edit_manufacturer_path(@manufacturer) %> |
+<%= link_to t('Back'), manufacturers_path %>
