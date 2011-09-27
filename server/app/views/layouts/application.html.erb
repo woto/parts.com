@@ -7,10 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to t('Manufacturers'), manufacturers_path %>
-  <%= link_to t('Manufacturer Synonyms'), manufacturer_synonyms_path %>
-  <%= link_to t('Parts'), parts_path %>
-  <%= link_to t('Processing'), '/processing' %>
+  <%= render_navigation %>
 <%= yield %>
 
 </body>
