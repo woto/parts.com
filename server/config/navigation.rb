@@ -32,7 +32,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :mkey_1, t('Manufacturers'), '' do |sub_nav|
+    primary.item :mkey_1, t('Manufacturers'), '#' do |sub_nav|
       sub_nav.item :mkey_1_1, t('Manufacturers'), manufacturers_path
       sub_nav.item :meky_1_2, t('Manufacturer Synonyms'), manufacturer_synonyms_path
     end
