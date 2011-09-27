@@ -3,6 +3,7 @@ ru:
     labels:
       processing:
         fields: Каталожных номеров за раз
+        datetime: Позднее какой даты
       manufacturer_synonym:
         title: Синоним
         manufacturer: Производитель
@@ -25,3 +26,4 @@ ru:
         manufacturer: ""
       processing:
         fields: Внимание, данное поле может повлиять на блокировку сервера со стороны parts.com  
+        datetime: Позднее какой даты с последней проверки обработать?

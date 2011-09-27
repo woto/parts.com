@@ -3,6 +3,8 @@
 <%= simple_form_for(@processing, :url => '/processing/create/') do |f| %>
   <div class="inputs">
     <%= f.input :fields %>
+    <br />
+    <%= f.input :datetime, :as => :datetime, :disabled => true %>
   </div>
 
   <br />
