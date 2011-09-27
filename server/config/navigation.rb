@@ -32,13 +32,13 @@ SimpleNavigation::Configuration.run do |navigation|
 
   # Define the primary navigation
   navigation.items do |primary|
-    primary.item :mkey_1, t('Manufacturers'), '#' do |sub_nav|
+    primary.item :mkey_1, t('Manufacturers'), '' do |sub_nav|
       sub_nav.item :mkey_1_1, t('Manufacturers'), manufacturers_path
       sub_nav.item :meky_1_2, t('Manufacturer Synonyms'), manufacturer_synonyms_path
     end
     primary.item :mkey_2, t('Parts'), parts_path
-    primary.item :mkey_3, t('Processing'), '/processing/'
-    primary.item :mkey_4, t('Delyed Job Admin'), delayed_job_admin_path
+    primary.item :mkey_3, t('Processing'), processing_new_path
+    primary.item :mkey_4, t('Delayed Job Admin'), delayed_job_admin_path
 
     # Add an item to the primary navigation. The following params apply:
     # key - a symbol which uniquely defines your navigation item in the scope of the primary_navigation

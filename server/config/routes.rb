@@ -1,7 +1,7 @@
 Server::Application.routes.draw do
 
-  get "processing" => "Processing#new"
-  post "processing" => "Processing#create"
+  get "processing" => "Processing#new", :as => 'processing_new'
+  post "processing" => "Processing#create", :as => 'processing_create'
   match 'gist' => 'gist#load', :as => :gist
 
   resources :parts

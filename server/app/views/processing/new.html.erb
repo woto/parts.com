@@ -1,6 +1,6 @@
 <h1>Processing#new</h1>
 
-<%= simple_form_for(@processing, :url => '/processing/') do |f| %>
+<%= simple_form_for(@processing, :url => processing_create_path ) do |f| %>
   <div class="inputs">
     <%= f.input :fields %>
     <br />
