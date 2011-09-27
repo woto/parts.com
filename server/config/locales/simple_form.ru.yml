@@ -4,6 +4,7 @@ ru:
       processing:
         fields: Каталожных номеров за раз
         datetime: Позднее какой даты
+        processes: Процессов
       manufacturer_synonym:
         title: Синоним
         manufacturer: Производитель
@@ -27,3 +28,4 @@ ru:
       processing:
         fields: Внимание, данное поле может повлиять на блокировку сервера со стороны parts.com  
         datetime: Позднее какой даты с последней проверки обработать?
+        processes: Количество одновременных процессов
