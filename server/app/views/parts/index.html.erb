@@ -1,12 +1,12 @@
-<h1>Listing parts</h1>
+<h1><%= t('Listing parts') %></h1>
 
 <table>
   <tr>
-    <th>Catalog number</th>
-    <th>Manufacturer</th>
-    <th>Price</th>
-    <th>Price checked</th>
-    <th>Price updated</th>
+    <th><%= t('Catalog number') %></th>
+    <th><%= t('Manufacturer') %></th>
+    <th><%= t('Price') %></th>
+    <th><%= t('Price checked') %></th>
+    <th><%= t('Price updated') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -28,4 +28,4 @@
 
 <br />
 
-<%= link_to 'New Part', new_part_path %>
+<%= link_to t('New Part'), new_part_path %>
