@@ -1,5 +1,5 @@
 class Part < ActiveRecord::Base
   belongs_to :manufacturer
   validates :manufacturer, :presence => true
-  validates :catalog_number, :presence => true
+  validates :catalog_number, :presence => true, :uniqueness => true
 end
