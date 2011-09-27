@@ -1,7 +1,7 @@
 Server::Application.routes.draw do
 
   get "processing" => "Processing#new"
-  post "processing/create"
+  post "processing" => "Processing#create"
 
   resources :parts
 
