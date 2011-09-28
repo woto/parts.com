@@ -70,6 +70,7 @@ GEM
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
+    fastercsv (1.5.4)
     formtastic (2.0.0)
       rails (~> 3.0)
     fssm (0.2.7)
@@ -171,6 +172,7 @@ DEPENDENCIES
   compass (~> 0.12.alpha)
   delayed_job
   delayed_job_admin!
+  fastercsv
   formtastic
   haml
   hpricot

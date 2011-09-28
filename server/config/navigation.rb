@@ -36,7 +36,10 @@ SimpleNavigation::Configuration.run do |navigation|
       sub_nav.item :mkey_1_1, t('Manufacturers from parts_com'), manufacturers_path, :highlights_on => /manufacturers/
       sub_nav.item :meky_1_2, t('Manufacturer synonyms'), manufacturer_synonyms_path, :highlights_on => /manufacturer_synonyms/
     end
-    primary.item :mkey_2, t('Parts'), parts_path, :highlights_on => /parts/
+    primary.item :mkey_2, t('Parts'), parts_path, :highlights_on => /parts/ do |sub_nav|
+      sub_nav.item :mkey_2_1, t('Upload csv file'), prices_path, :highlights_on => /price/
+    end
+      
     primary.item :mkey_3, t('Processing'), processing_new_path
     primary.item :mkey_4, t('Delayed Job Admin'), delayed_job_admin_path
 

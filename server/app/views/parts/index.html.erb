@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th><%= t('Catalog number') %></th>
+    <th><%= t('Part name') %></th>
     <th><%= t('Manufacturer') %></th>
     <th><%= t('Price') %></th>
     <th><%= t('Price checked') %></th>
@@ -15,6 +16,7 @@
 <% @parts.each do |part| %>
   <tr>
     <td><%= part.catalog_number %></td>
+    <td><%= part.title %></td>
     <td><%= part.manufacturer.try(:title) %></td>
     <td><%= part.price %></td>
     <td><%= part.price_checked.to_formatted_s(:short) %></td>

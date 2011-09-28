@@ -1,9 +1,11 @@
 ru:
+  Csv file: Имя файла
   Parts: Автозапчасти
   Manufacturer synonyms: Синонимы производителей
   Manufacturers: Производители
   Manufacturers from parts_com: Производители с parts.com
   Catalog number: Каталожный номер
+  Part name: Название
   Parts_com id: ID с parts.com
   Price: Цена
   Price checked: Последняя проверка
@@ -16,8 +18,16 @@ ru:
   Editing manufacturer synonym: Редактирование синонима производителя
   Manufacturer: Производитель
   Manufacturer synonym: Синоним
+  Upload csv file: Закачать csv файл
+  Uploaded csv files: Закачанные csv файлы
+  Upload new csv file: Закачать новый csv файл
+  Choose csv file: Закачка csv файла
   Back: Назад
   Edit: Редактировать
   Show: Просмотреть
   Destroy: Удалить
+  Download: Скачать
   Source code on github_com: Исходный код на github.com
+  prices:
+    index:
+      Created at: Дата закачки

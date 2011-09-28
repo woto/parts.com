@@ -1,5 +1,7 @@
 ru:
   simple_form:
+    error_notification:
+      default_message: "Вы не можете продолжить, т.к. возникли следующие ошибки:"
     labels:
       processing:
         fields: Каталожных номеров за раз

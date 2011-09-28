@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        price:
+          attributes:
+            price:
+              carrierwave_integrity_error: Выбран неверный формат файла

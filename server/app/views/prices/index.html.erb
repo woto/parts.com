@@ -1,8 +1,11 @@
-<h1>Listing prices</h1>
+<h1><%= t('Uploaded csv files') %></h1>
+
+<p id="notice"><%= notice %></p>
 
 <table>
   <tr>
-    <th>Price</th>
+    <th><%= t('Csv file') %></th>
+    <th><%= t('.Created at') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,14 +13,14 @@
 
 <% @prices.each do |price| %>
   <tr>
-    <td><%= price.price %></td>
-    <td><%= link_to 'Show', price %></td>
-    <td><%= link_to 'Edit', edit_price_path(price) %></td>
-    <td><%= link_to 'Destroy', price, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= price.price_identifier %></td>
+    <td><%= price.created_at.to_formatted_s(:short) %></td>
+    <td><%= link_to controls('Download'), price %></td>
+    <td><%= link_to controls('Destroy'), price, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Price', new_price_path %>
+<%= link_to t('Upload new csv file'), new_price_path %>

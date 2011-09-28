@@ -44,7 +44,7 @@ class PricesController < ApplicationController
 
     respond_to do |format|
       if @price.save
-        format.html { redirect_to @price, :notice => 'Price was successfully created.' }
+        format.html { redirect_to prices_path, :notice => 'Price was successfully created.' }
         format.json { render :json => @price, :status => :created, :location => @price }
       else
         format.html { render :action => "new" }
