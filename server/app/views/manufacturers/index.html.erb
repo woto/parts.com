@@ -13,9 +13,9 @@
   <tr>
     <td><%= manufacturer.parts_com_id %></td>
     <td><%= manufacturer.title %></td>
-    <td><%= link_to t('Show'), manufacturer %></td>
-    <td><%= link_to t('Edit'), edit_manufacturer_path(manufacturer) %></td>
-    <td><%= link_to t('Destroy'), manufacturer, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to controls('Show'), manufacturer %></td>
+    <td><%= link_to controls('Edit'), edit_manufacturer_path(manufacturer) %></td>
+    <td><%= link_to controls('Destroy'), manufacturer, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

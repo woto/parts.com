@@ -1,0 +1,26 @@
+@import "controls/*.png";
+
+@include all-controls-sprites;
+
+.controls-sprite {
+  margin: 2px;
+
+  span {
+    display: none;
+  }
+}
+
+.controls-show {
+  width: 24px;
+  height: 24px;
+}
+
+.controls-edit {
+  width: 16px;
+  height: 16px;
+}
+ 
+.controls-destroy {
+  width: 16px;
+  height: 16px;
+}

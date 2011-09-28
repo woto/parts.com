@@ -13,9 +13,9 @@
   <tr>
     <td><%= manufacturer_synonym.title %></td>
     <td><%= manufacturer_synonym.manufacturer.title %></td>
-    <td><%= link_to t('Show'), manufacturer_synonym %></td>
-    <td><%= link_to t('Edit'), edit_manufacturer_synonym_path(manufacturer_synonym) %></td>
-    <td><%= link_to t('Destroy'), manufacturer_synonym, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to controls('Show'), manufacturer_synonym %></td>
+    <td><%= link_to controls('Edit'), edit_manufacturer_synonym_path(manufacturer_synonym) %></td>
+    <td><%= link_to controls('Destroy'), manufacturer_synonym, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

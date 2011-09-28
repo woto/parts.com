@@ -19,9 +19,10 @@
     <td><%= part.price %></td>
     <td><%= part.price_checked.to_formatted_s(:short) %></td>
     <td><%= part.price_updated.to_formatted_s(:short) %></td>
-    <td><%= link_to t('Show'), part %></td>
-    <td><%= link_to t('Edit'), edit_part_path(part) %></td>
-    <td><%= link_to t('Destroy'), part, :confirm => 'Are you sure?', :method => :delete %></td>
+
+    <td><%= link_to controls('Show'), part %></td>
+    <td><%= link_to controls('Edit'), edit_part_path(part) %></td>
+    <td><%= link_to controls('Destroy'), part, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

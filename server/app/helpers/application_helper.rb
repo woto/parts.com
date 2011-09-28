@@ -7,4 +7,8 @@ module ApplicationHelper
     out
   end
 
+  def controls(param)
+    content_tag(:div, content_tag(:span, t(param)), :class => "controls-sprite controls-#{param.downcase}")
+  end
+
 end
