@@ -10,22 +10,29 @@ one:
 two:
   catalog_number: JEY0143029A
   manufacturer: Mazda
+  price: 2
+  price_checked: 2011-09-26 23:34:00
 
 three:
   catalog_number: MZ690072 
   manufacturer: Mitsubishi
+  price_updated: 2011-09-26 23:34:00
+  price: 5
 
 four:
   catalog_number: 123
   manufacturer: Toyota
+  price_updated: 2011-08-26 23:34:00
 
 five:
   catalog_number: 666
-  manufacturer: Non-Existent
+  price: 9
+  manufacturer: Toyota 
 
 six:
   catalog_number: MD136466  
   manufacturer: Hyundai
+  price_updated: 2011-09-26 23:34:00
 
 seven:
   catalog_number: 5327144010
@@ -37,4 +44,8 @@ eight:
 
 nine:
   catalog_number: 4720133401
+  manufacturer: Toyota
+
+ten:
+  catalog_number: 04466-60070
   manufacturer: Toyota

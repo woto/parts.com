@@ -5,6 +5,7 @@
 <table>
   <tr>
     <th><%= t('Catalog number') %></th>
+    <th><%= t('Old catalog number') %></th>
     <th><%= t('Part name') %></th>
     <th><%= t('Manufacturer') %></th>
     <th><%= t('Price') %></th>
@@ -18,6 +19,7 @@
 <% @parts.each do |part| %>
   <tr>
     <td><%= part.catalog_number %></td>
+    <td><%= part.old_catalog_number %></td>
     <td><%= part.title %></td>
     <td><%= part.manufacturer.try(:title) %></td>
     <td><%= part.price %></td>
@@ -31,6 +33,7 @@
 <% end %>
 </table>
 
+<%= paginate @parts %>
 <br />
 
 <%= link_to t('New part'), new_part_path %>

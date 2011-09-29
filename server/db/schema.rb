@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20110929024246) do
   add_index "parts", ["manufacturer_id"], :name => "index_parts_on_manufacturer_id"
 
   create_table "prices", :force => true do |t|
-    t.string   "price"
+    t.string   "price",      :default => "0", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "file_size"

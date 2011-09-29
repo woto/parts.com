@@ -7,6 +7,7 @@ ru:
         fields: Каталожных номеров за раз
         datetime: Позднее какой даты
         processes: Процессов
+        sleeping: Интервал между запросами (в секундах)
       manufacturer_synonym:
         title: Синоним
         manufacturer: Производитель

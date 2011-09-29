@@ -5,10 +5,11 @@ class Processing
   extend ActiveModel::Translation
   extend ActiveModel::Callbacks
     
-  attr_accessor :fields, :datetime, :processes
+  attr_accessor :fields, :datetime, :processes, :sleeping
     
   validates :fields, :presence => true, :numericality => {:only_integer => true}
   validates :processes, :presence => true, :numericality => {:only_integer => true}
+  validates :sleeping, :presence => true, :numericality => {:only_integer => true}
   
   define_model_callbacks :save
   
@@ -122,78 +123,87 @@ class Processing
   
   def save
     if valid?
-      processes.to_i.times do
-        keys = {}
-        begin
-          parts = Part.includes(:manufacturer).where("price_checked < ? OR price_checked is NULL", datetime).limit(fields).lock(true).all
-          parts.each_with_index do |part, i|
-            keys["partNumber#{i}"] = part.catalog_number
-            keys["makeid#{i}"] = part.manufacturer.parts_com_id
-          end
-          debugger
-          agent = Mechanize.new
-          result = agent.post("http://www.parts.com/oemcatalog/index.cfm?action=getMultiSearchItems&siteid=2&items=#{parts.length}", keys)
+      #processes.to_i.times do
+        
+      Каталожный номер найден
+      Каталожный номер не найден
+      |- Был заменен и найден
+      |- Был заменен и не найден
+      |- Каталожный номер больше не существует
 
-          begin
-            tables = result.search("//table[@border=1]").select do |line|
-              begin
-                new_catalog_number = line.css('td[1]').css('b').text.match(/superceded by part number (.*)\./)[1]
-                catalog_number = line.css('td[1]').css('b').text.match(/Part number (.*) was/)[1]
-              rescue
-                new_catalog_number = nil
-              end
+        catch(:next_parts) do
 
-              begin 
-                line.css('td[1] td').to_html =~ /discontinued/
-              rescue nil
-              else
-                title = URI.decode(line.css('td[1]').css('input[3]').attribute('value').text).strip
-                parts_com_id = line.css('td[1]').css('input[5]').attribute('value').text
-                price = line.css('td[1]').css('input[6]').attribute('value').text
-              end
+          while true
+            parts = Part.includes(:manufacturer).where("price_checked < ? OR price_checked is NULL", datetime).limit(fields).lock(true).all
+            
+            return if parts.blank?
 
-              catalog_number = line.css('td[1]').css('input[4]').attribute('value').text
-              # Если деталь была заменена, то создаем новую и указываем у неё,
-              # что она является заменой старой
-              # Цену указываем не зависимо от того установлена она или нет (нет в наличии parts.com)
-              debugger
-              if new_catalog_number
-
-                new_part = Part.where(:catalog_number => new_catalog_number, 
-                  :manufacturer_id => Manufacturer.where(:parts_com_id => parts_com_id))
-                
-                if new_part.blank?
-                  Part.create!(:price_checked => DateTime.now,
-                    :title => title,
-                    :price => price,
-                    :catalog_number => new_catalog_number,
-                    :old_catalog_number => catalog_number,
-                    :manufacturer => Manufacturer.where(:parts_com_id => parts_com_id).first,
-                    :price_checked => DateTime.now)
-                end
-              end
-
-              parts.reject do |part|
-                if part.catalog_number == new_catalog_number || 
-                  part.catalog_number == catalog_number and 
-                  part.manufacturer.parts_com_id.to_s == parts_com_id
-                part.update_attributes(:price_checked => DateTime.now,
-                  :price => price,
-                  :title => title,
-                  :manufacturer => Manufacturer.where(:parts_com_id => parts_com_id).first,
-                  :price_checked => DateTime.now)
-                end
-              end
+            keys = {}
+            parts.each_with_index do |part, i|
+              keys["partNumber#{i+1}"] = part.catalog_number
+              keys["makeid#{i+1}"] = part.manufacturer.parts_com_id
             end
-          rescue Exception => e
-            return result.body
-            #Rails.logger.info(result.body)
+
+            agent = Mechanize.new
+            puts keys
+            result = agent.post("http://www.parts.com/oemcatalog/index.cfm?action=getMultiSearchItems&siteid=2&items=#{parts.length}", keys)
+
+            begin
+              
+              result.search("//table[@border=1]").each_with_index do |line, i|
+
+                throw :next_parts if line.text =~ /No parts found!/
+
+                price, title = nil
+                
+                begin
+                  title = URI.decode(line.css('td[1]').css('input[3]').attribute('value').text).strip
+                  parts[i].title = title unless title == "No Part Found"
+                rescue
+                end
+
+                begin
+                  price = line.css('td[1]').css('input[6]').attribute('value').text
+                  parts[i].price = price
+                rescue
+                end
+                
+                catalog_number = line.css('td[1]').text.match(/Part Number: (.*)./)[1]
+
+                unless parts[i].catalog_number == catalog_number
+                  part = Part.where(:catalog_number => catalog_number, :manufacturer_id => parts[i].manufacturer.id).first
+                  unless part.present?
+                    part = Part.new(:catalog_number => catalog_number, :manufacturer => parts[i].manufacturer)
+                  end
+                  part.old_catalog_number = parts[i].catalog_number
+
+                  if title
+                    part.title = title
+                  end
+                  
+                  if price
+                    part.price = price
+                  end
+
+                  part.price_checked = DateTime.now
+                    
+                  part.save
+                end  
+                
+                parts[i].price_checked = DateTime.now
+                parts[i].save
+
+              end
+            rescue Exception => e
+              debugger
+              return result.body
+            end
+            sleep(sleeping.to_i)
           end
-        end while parts
-          # Delayed::Job.enqueue Grabber.new(fields, datetime)
+        end
+        # Delayed::Job.enqueue Grabber.new(fields, datetime)
+      else
+          return false
       end
-    else
-      return false
-    end
   end
 end

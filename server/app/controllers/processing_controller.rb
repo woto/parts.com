@@ -2,8 +2,9 @@ class ProcessingController < ApplicationController
   def new
     @processing = Processing.new(
       :fields => 10, 
-      :datetime => DateTime.now - 30.day, 
-      :processes => 10
+      :datetime => DateTime.now, 
+      :processes => 10,
+      :sleeping => 20
     )
   end
 
