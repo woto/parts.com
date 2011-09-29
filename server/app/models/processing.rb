@@ -56,7 +56,6 @@ class Processing
     errors = []
     callstack.each do |name, values_with_empty_parameters|
       begin
-        debugger
         send(name + "=", read_value_from_parameter(name, values_with_empty_parameters))
       rescue => ex
         errors << AttributeAssignmentError.new("error on assignment #{values_with_empty_parameters.values.inspect} to #{name}", ex, name)
@@ -68,7 +67,6 @@ class Processing
   end
 
   def read_value_from_parameter(name, values_hash_from_param)
-    debugger
     #klass = (self.class.reflect_on_aggregation(name.to_sym) || column_for_attribute(name)).klass
     if name == 'datetime'
       klass = Time
@@ -124,14 +122,45 @@ class Processing
   
   def save
     if valid?
-      keys = {}
-      Part.joins(:manufacturer).all.each_with_index do |part, i|
-       keys["partNumber#{i}"] = part.catalog_number
-       keys["makeid#{i}"] = part.manufacturer.parts_com_id
+      processes.to_i.times do
+        keys = {}
+        begin
+          parts = Part.includes(:manufacturer).where("price_checked < ? OR price_checked is NULL", datetime).limit(fields).lock(true).all
+          debugger
+          parts.each_with_index do |part, i|
+            keys["partNumber#{i}"] = part.catalog_number
+            keys["makeid#{i}"] = part.manufacturer.parts_com_id
+          end
+          agent = Mechanize.new
+          result = agent.post("http://www.parts.com/oemcatalog/index.cfm?action=getMultiSearchItems&siteid=2&items=#{parts.length}", keys)
+
+          begin
+            tables = result.search("//table[@border=1]").select do |line|
+              title = URI.decode(line.css('td[1]').css('input[3]').attribute('value').text).strip
+              catalog_number = line.css('td[1]').css('input[4]').attribute('value').text
+              parts_com_id = line.css('td[1]').css('input[5]').attribute('value').text
+              price = line.css('td[1]').css('input[6]').attribute('value').text
+              parts.reject do |part|
+                if (part.catalog_number == catalog_number) && (part.manufacturer.parts_com_id.to_s == parts_com_id)
+                  if price.to_f > 0
+                    if part.price != price.to_f
+                      part.price_updated = DateTime.now
+                      part.price = price
+                    end
+                  end
+                  part.price_checked = DateTime.now
+                  part.title = title
+                  part.save
+                end
+              end
+            end
+          rescue Exception => e
+            return result.body
+            #Rails.logger.info(result.body)
+          end
+        end while parts
+          # Delayed::Job.enqueue Grabber.new(fields, datetime)
       end
-      agent = Mechanize.new
-      result = agent.post('http://www.parts.com/oemcatalog/index.cfm?action=getMultiSearchItems&siteid=2&items=30', keys)
-      return result.search("table[1] table table")
     else
       return false
     end

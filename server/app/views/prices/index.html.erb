@@ -5,6 +5,7 @@
 <table>
   <tr>
     <th><%= t('Csv file') %></th>
+    <th><%= t('File size') %></th>
     <th><%= t('.Created at') %></th>
     <th></th>
     <th></th>
@@ -14,6 +15,7 @@
 <% @prices.each do |price| %>
   <tr>
     <td><%= price.price_identifier %></td>
+    <td><%= number_to_human_size(price.file_size) %></td>
     <td><%= price.created_at.to_formatted_s(:short) %></td>
     <td><%= link_to controls('Download'), price %></td>
     <td><%= link_to controls('Destroy'), price, :confirm => 'Are you sure?', :method => :delete %></td>

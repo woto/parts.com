@@ -1,5 +1,7 @@
 <h1><%= t('Parts') %></h1>
 
+<%= paginate @parts %>
+
 <table>
   <tr>
     <th><%= t('Catalog number') %></th>
@@ -19,8 +21,8 @@
     <td><%= part.title %></td>
     <td><%= part.manufacturer.try(:title) %></td>
     <td><%= part.price %></td>
-    <td><%= part.price_checked.to_formatted_s(:short) %></td>
-    <td><%= part.price_updated.to_formatted_s(:short) %></td>
+    <td><%= part.price_checked %></td>
+    <td><%= part.price_updated %></td>
 
     <td><%= link_to controls('Show'), part %></td>
     <td><%= link_to controls('Edit'), edit_part_path(part) %></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928012503) do
+ActiveRecord::Schema.define(:version => 20110928022612) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -52,12 +52,14 @@ ActiveRecord::Schema.define(:version => 20110928012503) do
     t.string   "title"
   end
 
+  add_index "parts", ["catalog_number"], :name => "index_parts_on_catalog_number"
   add_index "parts", ["manufacturer_id"], :name => "index_parts_on_manufacturer_id"
 
   create_table "prices", :force => true do |t|
     t.string   "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "file_size"
   end
 
 end
