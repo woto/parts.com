@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928022612) do
+ActiveRecord::Schema.define(:version => 20110929024246) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -42,14 +42,15 @@ ActiveRecord::Schema.define(:version => 20110928022612) do
   end
 
   create_table "parts", :force => true do |t|
-    t.string   "catalog_number",  :null => false
-    t.integer  "manufacturer_id", :null => false
+    t.string   "catalog_number",     :null => false
+    t.integer  "manufacturer_id",    :null => false
     t.float    "price"
     t.datetime "price_checked"
     t.datetime "price_updated"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.string   "old_catalog_number"
   end
 
   add_index "parts", ["catalog_number"], :name => "index_parts_on_catalog_number"
