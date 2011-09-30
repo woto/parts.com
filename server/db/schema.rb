@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20110929024246) do
 
   create_table "manufacturer_synonyms", :force => true do |t|
     t.string   "title",           :null => false
-    t.integer  "manufacturer_id", :null => false
+    t.integer  "manufacturer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,7 @@
+ru:
+  fastercsv:
+    Comma: Запятая
+    Tab: Табуляция
+    Semicolon: Точка с запятой
+    Quote: Кавычка
+    None: Отсутствует

@@ -3,6 +3,14 @@
 
   <div class="inputs">
     <%= f.input :price %>
+    <br />
+    <%= f.input :catalog_number_colnum %>
+    <br />
+    <%= f.input :manufacturer_colnum %>
+    <br />
+    <%= f.input :col_sep, :collection => Price::COL_SEPS.sort.map { |k,v| [t(v[:vanila]),k] } %>
+    <br />
+    <%= f.input :quote_char, :collection => Price::QUOTE_CHARS.sort.map { |k,v| [t(v[:vanila]),k] } %>
   </div>
 
   <div class="actions">

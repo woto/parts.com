@@ -10,7 +10,7 @@
   </tr>
 
 <% @manufacturers.each do |manufacturer| %>
-  <tr>
+  <tr class='<%= cycle('even', 'odd') %>' >
     <td><%= manufacturer.parts_com_id %></td>
     <td><%= manufacturer.title %></td>
     <td><%= link_to controls('Show'), manufacturer %></td>

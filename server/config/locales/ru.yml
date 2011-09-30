@@ -4,13 +4,13 @@ ru:
   Manufacturer synonyms: Синонимы производителей
   Manufacturers: Производители
   Manufacturers from parts_com: Производители с parts.com
-  Catalog number: Каталожный номер
-  Old catalog number: Старый каталожный номер
+  Catalog number: Артикул
+  Old catalog number: Старый артикул
   Part name: Название
   Parts_com id: ID с parts.com
   Price: Цена
-  Price checked: Последняя проверка
-  Price updated: Последнее изменение
+  Price checked: Посл. проверка
+  Price updated: Посл. изменение
   New manufacturer: Новый производитель
   New manufacturer synonym: Новый синоним производителя
   New part: Новая автозапчасть
@@ -23,6 +23,8 @@ ru:
   Uploaded csv files: Закачанные csv файлы
   Upload new csv file: Закачать новый csv файл
   Choose csv file: Закачка csv файла
+  Processing: Сграббить
+  Delayed Job Admin: Очередь задач
   File size: Размер
   Back: Назад
   Edit: Редактировать

@@ -24,7 +24,10 @@ class PricesController < ApplicationController
   # GET /prices/new
   # GET /prices/new.json
   def new
-    @price = Price.new
+    @price = Price.new(:col_sep => 0, 
+      :quote_char => 0,
+      :catalog_number_colnum => 1, 
+      :manufacturer_colnum => 3)
 
     respond_to do |format|
       format.html # new.html.erb

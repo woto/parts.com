@@ -13,11 +13,11 @@
   </tr>
 
 <% @prices.each do |price| %>
-  <tr>
+  <tr class='<%= cycle('even', 'odd') %>' >
     <td><%= price.price_identifier %></td>
     <td><%= number_to_human_size(price.file_size) %></td>
-    <td><%= price.created_at.to_formatted_s(:short) %></td>
-    <td><%= link_to controls('Download'), price %></td>
+    <td><%= l(price.created_at, :format => :short) %></td>
+    <td><%= link_to controls('Download'), price.price.url %></td>
     <td><%= link_to controls('Destroy'), price, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

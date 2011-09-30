@@ -49,3 +49,19 @@ nine:
 ten:
   catalog_number: 04466-60070
   manufacturer: Toyota
+
+eleven:
+  catalog_number: 16620-28070
+  manufacturer: Toyota
+
+twelve:
+  catalog_number: 5220A733
+  manufacturer: Mitsubishi
+
+thirteen:
+  catalog_number: 16400-75180
+  manufacturer: Toyota
+
+fourteen:
+  catalog_number: 16410YZZAJ
+  manufacturer: Toyota

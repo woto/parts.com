@@ -10,9 +10,9 @@
   </tr>
 
 <% @manufacturer_synonyms.each do |manufacturer_synonym| %>
-  <tr>
-    <td><%= manufacturer_synonym.title %></td>
-    <td><%= manufacturer_synonym.manufacturer.title %></td>
+  <tr class='<%= cycle('even', 'odd') %>' >
+    <td><%= manufacturer_synonym.title.nil? ? '' :  manufacturer_synonym.title %></td>
+    <td><%= manufacturer_synonym.manufacturer.nil? ? '' : manufacturer_synonym.manufacturer.title %></td>
     <td><%= link_to controls('Show'), manufacturer_synonym %></td>
     <td><%= link_to controls('Edit'), edit_manufacturer_synonym_path(manufacturer_synonym) %></td>
     <td><%= link_to controls('Destroy'), manufacturer_synonym, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -71,3 +71,15 @@ body {
     text-decoration: none;
     &:hover {
       text-decoration: underline; } } }
+
+.even {
+  background-color: #DBE5CE;
+}
+
+.odd {
+  background-color: #afa49e;
+}
+
+td {
+  padding: 3px;
+}

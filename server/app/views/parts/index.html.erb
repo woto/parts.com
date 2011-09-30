@@ -1,11 +1,12 @@
 <h1><%= t('Parts') %></h1>
 
+<br />
 <%= paginate @parts %>
+<br />
 
 <table>
   <tr>
-    <th><%= t('Catalog number') %></th>
-    <th><%= t('Old catalog number') %></th>
+    <th><%= t('Catalog number') %> <br /><%= t('Old catalog number') %></th>
     <th><%= t('Part name') %></th>
     <th><%= t('Manufacturer') %></th>
     <th><%= t('Price') %></th>
@@ -17,14 +18,13 @@
   </tr>
 
 <% @parts.each do |part| %>
-  <tr>
-    <td><%= part.catalog_number %></td>
-    <td><%= part.old_catalog_number %></td>
-    <td><%= part.title %></td>
+  <tr class='<%= cycle('even', 'odd') %>' >
+    <td><%= part.catalog_number %> <br /> <%= part.old_catalog_number %></td>
+    <td><%= truncate(part.title) %></td>
     <td><%= part.manufacturer.try(:title) %></td>
-    <td><%= part.price %></td>
-    <td><%= part.price_checked %></td>
-    <td><%= part.price_updated %></td>
+    <td><%= number_to_currency(part.price, :locale => 'us') %></td>
+    <td><%= part.price_checked.nil? ? '' : l(part.price_checked, :format => :short) %></td>
+    <td><%= part.price_updated.nil? ? '' : l(part.price_updated, :format => :short) %></td>
 
     <td><%= link_to controls('Show'), part %></td>
     <td><%= link_to controls('Edit'), edit_part_path(part) %></td>
@@ -33,6 +33,7 @@
 <% end %>
 </table>
 
+<br />
 <%= paginate @parts %>
 <br />
 

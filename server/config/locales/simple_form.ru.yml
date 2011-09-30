@@ -3,9 +3,15 @@ ru:
     error_notification:
       default_message: "Вы не можете продолжить, т.к. возникли следующие ошибки:"
     labels:
+      price:
+        catalog_number_colnum: Номер столбца артикула
+        manufacturer_colnum: Номер столбца производителя
+        price: Выберите файл
+        quote_char: Экранирование
+        col_sep: Разделитель столбцов
       processing:
         fields: Каталожных номеров за раз
-        datetime: Позднее какой даты
+        datetime: До какой даты
         processes: Процессов
         sleeping: Интервал между запросами (в секундах)
       manufacturer_synonym:
@@ -30,5 +36,5 @@ ru:
         manufacturer: ""
       processing:
         fields: Внимание, данное поле может повлиять на блокировку сервера со стороны parts.com  
-        datetime: Позднее какой даты с последней проверки обработать?
+        datetime: До какой даты считать цены устаревшими?
         processes: Количество одновременных процессов
