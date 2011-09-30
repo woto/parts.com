@@ -12,9 +12,9 @@ class ProcessingController < ApplicationController
     @processing = Processing.new(params[:processing])
 
     respond_to do |format|
-      if result = @processing.save
-        format.html { render :text => result }
-        # format.html { redirect_to '/', :notice => 'Part was successfully created.' }
+      if @processing.save
+        #format.html { render :text => result }
+        format.html { redirect_to '/', :notice => 'Processing was successfully created.' }
       else
         format.html { render :action => "new" }
       end

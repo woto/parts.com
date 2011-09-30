@@ -12,6 +12,7 @@
     <th><%= t('Price') %></th>
     <th><%= t('Price checked') %></th>
     <th><%= t('Price updated') %></th>
+    <th><%= t('Locked') %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,6 +26,7 @@
     <td><%= number_to_currency(part.price, :locale => 'us') %></td>
     <td><%= part.price_checked.nil? ? '' : l(part.price_checked, :format => :short) %></td>
     <td><%= part.price_updated.nil? ? '' : l(part.price_updated, :format => :short) %></td>
+    <td><%= part.locked %></td>
 
     <td><%= link_to controls('Show'), part %></td>
     <td><%= link_to controls('Edit'), edit_part_path(part) %></td>
