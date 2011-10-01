@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20110930015300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.string   "old_catalog_number"
+    t.string   "new_catalog_number"
     t.boolean  "locked",             :default => false, :null => false
   end
 

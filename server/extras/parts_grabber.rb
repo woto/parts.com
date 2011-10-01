@@ -74,17 +74,14 @@ class PartsGrabber < Struct.new(:fields, :datetime, :sleeping)
                   parts[i].price = price
                 end
                 
-                parts[i].price_checked = DateTime.now
-                parts[i].locked = false
-                parts[i].locked_will_change!
-                parts[i].save
-
                 unless parts[i].catalog_number == catalog_number
+
+                  parts[i].new_catalog_number = catalog_number
+
                   part = Part.where(:catalog_number => catalog_number, :manufacturer_id => parts[i].manufacturer.id).first
                   unless part.present?
                     part = Part.new(:catalog_number => catalog_number, :manufacturer => parts[i].manufacturer)
                   end
-                  part.old_catalog_number = parts[i].catalog_number
 
                   if title
                     part.title = title
@@ -99,6 +96,11 @@ class PartsGrabber < Struct.new(:fields, :datetime, :sleeping)
                   part.locked_will_change!
                   part.save
                 end  
+
+                parts[i].price_checked = DateTime.now
+                parts[i].locked = false
+                parts[i].locked_will_change!
+                parts[i].save
 
               end
             rescue Exception => e

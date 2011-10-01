@@ -6,7 +6,7 @@
 
 <table>
   <tr>
-    <th><%= t('Catalog number') %> <br /><%= t('Old catalog number') %></th>
+    <th><%= t('Catalog number') %> <br /><%= t('New catalog number') %></th>
     <th><%= t('Part name') %></th>
     <th><%= t('Manufacturer') %></th>
     <th><%= t('Price') %></th>
@@ -20,7 +20,7 @@
 
 <% @parts.each do |part| %>
   <tr class='<%= cycle('even', 'odd') %>' >
-    <td><%= part.catalog_number %> <br /> <%= part.old_catalog_number %></td>
+    <td><%= part.catalog_number %> <br /> <%= part.new_catalog_number %></td>
     <td><%= truncate(part.title) %></td>
     <td><%= part.manufacturer.try(:title) %></td>
     <td><%= number_to_currency(part.price, :locale => 'us') %></td>
