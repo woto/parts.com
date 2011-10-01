@@ -1,20 +1,21 @@
 class Grabber < Struct.new(:fields, :datetime, :sleeping)
   def perform
-      # Каталожный номер найден
-      # Каталожный номер не найден
-      # |- Был заменен и найден
-      # |- Был заменен и не найден
-      # |- Каталожный номер больше не существует
+      # 1. Каталожный номер найден один в один (123 : 123)
+      # 2. Каталожный номер найден, но написание отличается (12-3 : 123)
+      # 3. Каталожный номер заменен на новый (123 : 123X)
+      # 4. Предложения по каталожному номеру отсутсвует
 
         catch(:next_parts) do
 
           while true
+
             parts = []
+            # Блокируем интересующие записи и обновляем что они защищены от чтения
             ActiveRecord::Base.transaction do
-              parts_for_update = Part.includes(:manufacturer).where("price_checked < ? OR price_checked is NULL", datetime).where(:locked => false).limit(fields).lock(true)
-              return if parts_for_update.none?
-              parts_for_update.update_all(:locked => true)
-              parts = parts_for_update.all
+              locked_parts = Part.includes(:manufacturer).where("price_checked < ? OR price_checked is NULL", datetime).where(:locked => false).limit(fields).lock(true)
+              return if locked_parts.none?
+              locked_parts.update_all(:locked => true)
+              parts = locked_parts.all
             end
 
             keys = {}
@@ -23,31 +24,60 @@ class Grabber < Struct.new(:fields, :datetime, :sleeping)
               keys["makeid#{i+1}"] = part.manufacturer.parts_com_id
             end
 
-            agent = Mechanize.new
-            puts pp keys
-            result = agent.post("http://www.parts.com/oemcatalog/index.cfm?action=getMultiSearchItems&siteid=2&items=#{parts.length}", keys)
-
             begin
               
+              if @first_time
+                sleep(sleeping.to_i)
+              else 
+                @first_time = true
+              end
+          
+              agent = Mechanize.new
+              puts pp keys
+              result = agent.post("http://www.parts.com/oemcatalog/index.cfm?action=getMultiSearchItems&siteid=2&items=#{parts.length}", keys)
+
               result.search("//table[@border=1]").each_with_index do |line, i|
 
-                throw :next_parts if line.text =~ /No parts found!/
+                # Если детали совсем не найдены, 
+                # то сбрасываем блокировку и переходим к следующим
+                if line.text =~ /No parts found!/
+                  locked_parts.update_all(:locked => false)
+                  throw :next_parts 
+                end
 
-                price, title = nil
-                
+                catalog_number, price, title = nil
+
+                # Запомниаем название только если оно реально присутствует
                 begin
-                  title = URI.decode(line.css('td[1]').css('input[3]').attribute('value').text).strip
-                  parts[i].title = title unless title == "No Part Found"
+                  tmp = URI.decode(line.css('td[1]').css('input[3]').attribute('value').text).strip
+                  title = tmp if tmp != "No Part Found"
                 rescue
                 end
 
+                # Запоминаем цену, безусловно (всегда число)
                 begin
                   price = line.css('td[1]').css('input[6]').attribute('value').text
-                  parts[i].price = price
                 rescue
                 end
                 
+                # Запоминаем каталожный номер, безусловно
                 catalog_number = line.css('td[1]').text.match(/Part Number: (.*)./)[1]
+
+                if title
+                  # Тут название не обновится только если предложения по детали нет
+                  # чтобы не затереть имеющееся название (если таковое имеется)
+                  parts[i].title = title 
+                end
+
+                if price
+                  # Цена будет всегда, или 0
+                  parts[i].price = price
+                end
+                
+                parts[i].price_checked = DateTime.now
+                parts[i].locked = false
+                parts[i].locked_will_change!
+                parts[i].save
 
                 unless parts[i].catalog_number == catalog_number
                   part = Part.where(:catalog_number => catalog_number, :manufacturer_id => parts[i].manufacturer.id).first
@@ -59,7 +89,7 @@ class Grabber < Struct.new(:fields, :datetime, :sleeping)
                   if title
                     part.title = title
                   end
-                  
+ 
                   if price
                     part.price = price
                   end
@@ -69,19 +99,11 @@ class Grabber < Struct.new(:fields, :datetime, :sleeping)
                   part.locked_will_change!
                   part.save
                 end  
-                
-                parts[i].price_checked = DateTime.now
-                parts[i].locked = false
-                parts[i].locked_will_change!
-                parts[i].save
 
               end
             rescue Exception => e
-              debugger
-              puts 1
-              #return result.body
+              retry
             end
-            sleep(sleeping.to_i)
           end
         end
   end
