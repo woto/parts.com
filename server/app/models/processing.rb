@@ -125,7 +125,7 @@ class Processing
   def save
     if valid?
       processes.to_i.times do
-        Delayed::Job.enqueue Grabber.new(fields, datetime, sleeping)
+        Delayed::Job.enqueue PartsGrabber.new(fields, datetime, sleeping)
       end
     else
         return false
