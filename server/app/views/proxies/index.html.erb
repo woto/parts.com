@@ -1,0 +1,39 @@
+<h1>Listing proxies</h1>
+
+<table>
+  <tr>
+    <th>Last update</th>
+    <th>Ip address</th>
+    <th>Port</th>
+    <th>Country</th>
+    <th>Speed</th>
+    <th>Connection time</th>
+    <th>Protocol</th>
+    <th>Anonymity</th>
+    <th>Good</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @proxies.each do |proxy| %>
+  <tr>
+    <td><%= proxy.last_update %></td>
+    <td><%= proxy.ip_address %></td>
+    <td><%= proxy.port %></td>
+    <td><%= proxy.country %></td>
+    <td><%= proxy.speed %></td>
+    <td><%= proxy.connection_time %></td>
+    <td><%= proxy.protocol %></td>
+    <td><%= proxy.anonymity %></td>
+    <td><%= proxy.good %></td>
+    <td><%= link_to 'Show', proxy %></td>
+    <td><%= link_to 'Edit', edit_proxy_path(proxy) %></td>
+    <td><%= link_to 'Destroy', proxy, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Proxy', new_proxy_path %>

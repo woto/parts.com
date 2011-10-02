@@ -1,0 +1,19 @@
+<%= simple_form_for(@proxy) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :last_update %>
+    <%= f.input :ip_address %>
+    <%= f.input :port %>
+    <%= f.input :country %>
+    <%= f.input :speed %>
+    <%= f.input :connection_time %>
+    <%= f.input :protocol %>
+    <%= f.input :anonymity %>
+    <%= f.input :good %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

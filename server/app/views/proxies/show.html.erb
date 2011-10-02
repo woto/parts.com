@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Last update:</b>
+  <%= @proxy.last_update %>
+</p>
+
+<p>
+  <b>Ip address:</b>
+  <%= @proxy.ip_address %>
+</p>
+
+<p>
+  <b>Port:</b>
+  <%= @proxy.port %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @proxy.country %>
+</p>
+
+<p>
+  <b>Speed:</b>
+  <%= @proxy.speed %>
+</p>
+
+<p>
+  <b>Connection time:</b>
+  <%= @proxy.connection_time %>
+</p>
+
+<p>
+  <b>Protocol:</b>
+  <%= @proxy.protocol %>
+</p>
+
+<p>
+  <b>Anonymity:</b>
+  <%= @proxy.anonymity %>
+</p>
+
+<p>
+  <b>Good:</b>
+  <%= @proxy.good %>
+</p>
+
+
+<%= link_to 'Edit', edit_proxy_path(@proxy) %> |
+<%= link_to 'Back', proxies_path %>

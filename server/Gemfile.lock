@@ -24,6 +24,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    aaronh-chronic (0.3.9)
     actionmailer (3.1.0)
       actionpack (= 3.1.0)
       mail (~> 2.3.0)
@@ -171,6 +172,9 @@ GEM
       multi_json (>= 1.0.2)
     webrobots (0.0.12)
       nokogiri (>= 1.4.4)
+    whenever (0.6.8)
+      aaronh-chronic (>= 0.3.9)
+      activesupport (>= 2.3.4)
 
 PLATFORMS
   ruby
@@ -199,3 +203,4 @@ DEPENDENCIES
   simple-navigation!
   simple_form!
   uglifier
+  whenever

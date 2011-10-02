@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  last_update: 2011-10-02 14:26:05
+  ip_address: MyString
+  port: MyString
+  country: MyString
+  speed: 1
+  connection_time: 1
+  protocol: MyString
+  anonymity: MyString
+  good: false
+
+two:
+  last_update: 2011-10-02 14:26:05
+  ip_address: MyString
+  port: MyString
+  country: MyString
+  speed: 1
+  connection_time: 1
+  protocol: MyString
+  anonymity: MyString
+  good: false

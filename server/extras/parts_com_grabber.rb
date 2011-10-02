@@ -1,4 +1,4 @@
-class PartsGrabber < Struct.new(:fields, :datetime, :sleeping)
+class PartsComGrabber < Struct.new(:fields, :datetime, :sleeping)
   def perform
       # 1. Каталожный номер найден один в один (123 : 123)
       # 2. Каталожный номер найден, но написание отличается (12-3 : 123)

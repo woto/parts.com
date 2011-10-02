@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930015300) do
+ActiveRecord::Schema.define(:version => 20111002102605) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -62,6 +62,21 @@ ActiveRecord::Schema.define(:version => 20110930015300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "file_size"
+  end
+
+  create_table "proxies", :force => true do |t|
+    t.datetime "timestamp"
+    t.string   "ip"
+    t.string   "port"
+    t.string   "country"
+    t.integer  "speed"
+    t.integer  "connection_time"
+    t.string   "protocol"
+    t.string   "anonymity"
+    t.integer  "good"
+    t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -1,5 +1,7 @@
 Server::Application.routes.draw do
 
+  resources :proxies
+
   resources :prices
 
   get "processing" => "Processing#new", :as => 'processing_new'
