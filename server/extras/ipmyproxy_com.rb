@@ -6,7 +6,7 @@ class IpmyproxyCom
     while true
       Proxy.where('good BETWEEN ? AND ?', -9, 9).each do |proxy|
         begin
-          Timeout::timeout(5) do
+          Timeout::timeout(15) do
             agent = Mechanize.new
             values = Mechanize::AGENT_ALIASES.values
             values.shift
@@ -16,7 +16,7 @@ class IpmyproxyCom
             begin
               Proxy.transaction do
                 if result.body =~ /#{Regexp.escape('No proxy detected.')}/
-                  proxy.increment(:good)
+                  proxy.good = proxy.good + 3
                 else
                   proxy.good = AppConfig.min_good
                 end
