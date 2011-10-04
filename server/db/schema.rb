@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20111004204304) do
     t.integer  "connection_time"
     t.string   "protocol"
     t.string   "anonymity"
-    t.integer  "good",            :default => 0
+    t.integer  "good",            :default => 0, :null => false
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
