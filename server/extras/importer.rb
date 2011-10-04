@@ -1,7 +1,7 @@
 class Importer < Struct.new(:path, :col_sep, :quote_char, :catalog_number_colnum, :manufacturer_colnum)
   def perform
     FasterCSV.foreach(path, {:col_sep => Price::COL_SEPS[quote_char.to_i][:real], :quote_char => Price::COL_SEPS[col_sep.to_i][:real]}) do |csv|
-      begin
+      #begin
         # Заполнен ли производитель в прайсе
         if csv[manufacturer_colnum.to_i].present?
           # Ищем синоним
@@ -25,10 +25,10 @@ class Importer < Struct.new(:path, :col_sep, :quote_char, :catalog_number_colnum
             end
           end
         end
-      rescue => e
-        #debugger
-        #puts 1
-      end
+      #rescue => e
+      #  #debugger
+      #  #puts 1
+      #end
     end
   end
 end

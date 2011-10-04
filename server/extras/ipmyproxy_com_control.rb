@@ -1,4 +1,4 @@
-require '../config/environment.rb'
+require 'config/environment.rb'
 
 options = {
   :backtrace  => true,
@@ -8,4 +8,4 @@ options = {
   :dir => "#{Rails.root}/tmp/pids/"
 }
 
-Daemons.run(File.join(Dir.pwd, 'ipmyproxy_com.rb'), options)
+Daemons.run(File.join(Dir.pwd, 'extras', 'ipmyproxy_com.rb'), options)
