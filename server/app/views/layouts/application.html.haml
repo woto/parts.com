@@ -15,6 +15,9 @@
               = render_navigation(:renderer => :breadcrumbs, :join_with => '&nbsp;::&nbsp;')
               = yield
           .clear_float
+    
+    = render :partial => 'counters/google'
+    = render :partial => 'counters/yandex'
 
     :javascript
       $(document).ready(function(){ 
