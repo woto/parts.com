@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003001659) do
+ActiveRecord::Schema.define(:version => 20111004202504) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -73,11 +73,13 @@ ActiveRecord::Schema.define(:version => 20111003001659) do
     t.integer  "connection_time"
     t.string   "protocol"
     t.string   "anonymity"
-    t.integer  "good",            :default => 0, :null => false
+    t.integer  "good",            :default => 0
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "check"
   end
+
+  add_index "proxies", ["ip"], :name => "index_proxies_on_ip"
 
 end
