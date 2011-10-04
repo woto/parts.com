@@ -1,0 +1,7 @@
+defaults: &defaults
+  min_good: -10
+  max_good: 10
+
+development:
+  <<: *defaults
+  

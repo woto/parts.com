@@ -1,5 +1,5 @@
-every 10.minutes do
-  runner "get_proxy_list"
+every 2.hours do
+  rake "app:hidemyass_com_grab"
 end
 
 # Use this file to easily define all of your cron jobs.

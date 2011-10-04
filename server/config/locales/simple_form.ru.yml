@@ -3,6 +3,17 @@ ru:
     error_notification:
       default_message: "Вы не можете продолжить, т.к. возникли следующие ошибки:"
     labels:
+      proxy:
+        ip: Ip
+        port: Порт
+        country: Страна
+        speed: Скорость
+        connection_time: Сорость соеднинения
+        protocol: Протокол
+        anonymity: Анонимность
+        good: Проверка
+        check: Результат проверки
+        timestamp: Время получения
       price:
         catalog_number_colnum: Номер столбца артикула
         manufacturer_colnum: Номер столбца производителя
@@ -38,3 +49,6 @@ ru:
         fields: Внимание, данное поле может повлиять на блокировку сервера со стороны parts.com  
         datetime: До какой даты считать цены устаревшими?
         processes: Количество одновременных процессов
+      proxy:
+        # TODO хотелось бы чтобы данные брались из конфига
+        good:  промежуток от -10 до 10

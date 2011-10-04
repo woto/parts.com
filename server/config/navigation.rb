@@ -42,6 +42,7 @@ SimpleNavigation::Configuration.run do |navigation|
       
     primary.item :mkey_3, t('Processing'), processing_new_path
     primary.item :mkey_4, t('Delayed Job Admin'), delayed_job_admin_path
+    primary.item :mkey_5, t('Proxies'), proxies_path, :highlights_on => /prox/
 
     # Add an item to the primary navigation. The following params apply:
     # key - a symbol which uniquely defines your navigation item in the scope of the primary_navigation

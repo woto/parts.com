@@ -9,7 +9,7 @@ class CreateProxies < ActiveRecord::Migration
       t.integer :connection_time
       t.string :protocol
       t.string :anonymity
-      t.integer :good
+      t.integer :good, :default => 0, :null => false
       t.string :source
 
       t.timestamps

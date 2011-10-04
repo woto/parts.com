@@ -1,50 +1,54 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Last update:</b>
-  <%= @proxy.last_update %>
+  <b><%= t('Timestamp') %>:</b>
+  <%= @proxy.timestamp %>
 </p>
 
 <p>
-  <b>Ip address:</b>
-  <%= @proxy.ip_address %>
+  <b><%= t('Ip') %>:</b>
+  <%= @proxy.ip %>
 </p>
 
 <p>
-  <b>Port:</b>
+  <b><%= t('Port') %>:</b>
   <%= @proxy.port %>
 </p>
 
 <p>
-  <b>Country:</b>
+  <b><%= t('Country') %>:</b>
   <%= @proxy.country %>
 </p>
 
 <p>
-  <b>Speed:</b>
+  <b><%= t('Speed') %>:</b>
   <%= @proxy.speed %>
 </p>
 
 <p>
-  <b>Connection time:</b>
+  <b><%= t('Connection time') %>:</b>
   <%= @proxy.connection_time %>
 </p>
 
 <p>
-  <b>Protocol:</b>
+  <b><%= t('Protocol') %>:</b>
   <%= @proxy.protocol %>
 </p>
 
 <p>
-  <b>Anonymity:</b>
+  <b><%= t('Anonymity') %>:</b>
   <%= @proxy.anonymity %>
 </p>
 
 <p>
-  <b>Good:</b>
+  <b><%= t('Good') %>:</b>
   <%= @proxy.good %>
 </p>
 
+<p>
+  <b><%= t('Check') %>:</b>
+  <%= @proxy.check %>
+</p>
 
-<%= link_to 'Edit', edit_proxy_path(@proxy) %> |
-<%= link_to 'Back', proxies_path %>
+<%= link_to t('Edit'), edit_proxy_path(@proxy) %> |
+<%= link_to t('Back'), proxies_path %>

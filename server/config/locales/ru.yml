@@ -14,16 +14,29 @@ ru:
   New manufacturer: Новый производитель
   New manufacturer synonym: Новый синоним производителя
   New part: Новая автозапчасть
+  New proxy: Новый прокси
   Editing part: Редактирование автозапчасти
   Editing manufacturer: Редактирование производителя
   Editing manufacturer synonym: Редактирование синонима производителя
+  Editing proxy: Редактирование прокси
   Manufacturer: Производитель
   Manufacturer synonym: Синоним
   Upload csv file: Закачать csv файл
   Uploaded csv files: Закачанные csv файлы
   Upload new csv file: Закачать новый csv файл
   Choose csv file: Закачка csv файла
-  Processing: Сграббить
+  Processing: Процессинг
+  Proxies: Прокси сервера
+  Timestamp: Время получения
+  Ip: Ip
+  Port: Порт
+  Country: Страна
+  Speed: Скорость
+  Connection time: Время соеднинения
+  Protocol: Протокол
+  Anonymity: Анонимность
+  Good: Проверка
+  Check: Результат проверки
   Delayed Job Admin: Очередь задач
   File size: Размер
   Back: Назад
