@@ -28,7 +28,7 @@ class IpmyproxyCom
               puts e
             end
           end
-        rescue Timeout::Error, Net::HTTP::Persistent::Error,Net::HTTPMethodNotAllowed, Net::HTTPServiceUnavailable, Mechanize::ResponseCodeError, Errno::ECONNREFUSED => e
+        rescue Timeout::Error, Net::HTTP::Persistent::Error,Net::HTTPMethodNotAllowed, Net::HTTPServiceUnavailable, Mechanize::ResponseCodeError, Errno::ECONNREFUSED, Errno::ETIMEDOUT => e
           begin
             Proxy.transaction do
               proxy.decrement(:good)
