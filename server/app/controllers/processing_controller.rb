@@ -2,7 +2,7 @@ class ProcessingController < ApplicationController
   def new
     @processing = Processing.new(
       :fields => 10, 
-      :datetime => DateTime.now, 
+      :datetime => Time.zone.now, 
       :processes => 10,
       :sleeping => 20
     )

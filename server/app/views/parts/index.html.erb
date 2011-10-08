@@ -1,8 +1,6 @@
 <h1><%= t('Parts') %></h1>
 
-<br />
-<%= paginate @parts %>
-<br />
+<%= navigation.html_safe %>
 
 <table>
   <tr>
@@ -10,8 +8,7 @@
     <th><%= t('Part name') %></th>
     <th><%= t('Manufacturer') %></th>
     <th><%= t('Price') %></th>
-    <th><%= t('Price checked') %></th>
-    <th><%= t('Price updated') %></th>
+    <th><%= t('Price checked') %> <br /> <%= t('Price updated') %></th>
     <th><%= t('Locked') %></th>
     <th></th>
     <th></th>
@@ -21,22 +18,22 @@
 <% @parts.each do |part| %>
   <tr class='<%= cycle('even', 'odd') %>' >
     <td><%= part.catalog_number %> <br /> <%= part.new_catalog_number %></td>
-    <td><%= truncate(part.title) %></td>
+    <td><%= truncate(part.title, :length => 20) %></td>
     <td><%= part.manufacturer.try(:title) %></td>
     <td><%= number_to_currency(part.price, :locale => 'us') %></td>
-    <td><%= part.price_checked.nil? ? '' : l(part.price_checked, :format => :short) %></td>
-    <td><%= part.price_updated.nil? ? '' : l(part.price_updated, :format => :short) %></td>
+    <td>
+      <%= part.price_checked.nil? ? '' : l(part.price_checked, :format => :short) %> <br />
+      <%= part.price_updated.nil? ? '' : l(part.price_updated, :format => :short) %>
+    </td>
     <td><%= part.locked %></td>
 
     <td><%= link_to controls('Show'), part %></td>
-    <td><%= link_to controls('Edit'), edit_part_path(part) %></td>
-    <td><%= link_to controls('Destroy'), part, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to controls('Edit'), edit_part_path(part), :rel => "nofollow" %></td>
+    <td><%= link_to controls('Destroy'), part, :confirm => 'Are you sure?', :method => :delete, :rel => "nofollow" %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-<%= paginate @parts %>
-<br />
+<%= navigation.html_safe %>
 
 <%= link_to t('New part'), new_part_path %>

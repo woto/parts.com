@@ -1,4 +1,4 @@
-class HideMyAssGrabber
+class HideMyAssComGrabber
   def perform
     url = 'http://hidemyass.com/proxy-list/'
     agent = Mechanize.new
@@ -32,7 +32,12 @@ class HideMyAssGrabber
       if proxy.present?
         proxy.update_attributes(attr)
       else
+        #begin
         Proxy.create!(attr)
+        #rescue => e
+        #  debugger
+        #  puts 1
+        #end
       end
 
     end

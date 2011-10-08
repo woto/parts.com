@@ -94,8 +94,6 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.1)
-    kaminari (0.12.4)
-      rails (>= 3.0.0)
     libv8 (3.3.10.2)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
@@ -179,6 +177,7 @@ GEM
     whenever (0.7.0)
       activesupport (>= 2.3.4)
       chronic (~> 0.6.3)
+    will_paginate (3.0.2)
 
 PLATFORMS
   ruby
@@ -198,7 +197,6 @@ DEPENDENCIES
   hpricot
   jquery-rails
   json
-  kaminari
   mechanize
   mysql2
   rails (= 3.1.0)
@@ -211,3 +209,4 @@ DEPENDENCIES
   therubyracer
   uglifier
   whenever
+  will_paginate (~> 3.0)

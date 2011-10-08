@@ -1,0 +1,10 @@
+Delayed::Worker.destroy_failed_jobs = false
+Delayed::Worker.sleep_delay = 5
+Delayed::Worker.max_attempts = 20
+Delayed::Worker.max_run_time = 96.hours
+Delayed::Worker.default_priority = 10
+#Delayed::Worker.backend = :active_record
+DELAYED_JOB_LOGGER = ActiveSupport::BufferedLogger.new("log/delayed_job/#{Rails.env}.log", Rails.logger.level)
+#DELAYED_JOB_LOGGER.logger.sync = true
+#DELAYED_JOB_LOGGER.logger.auto_flushing = true
+Delayed::Worker.logger = DELAYED_JOB_LOGGER

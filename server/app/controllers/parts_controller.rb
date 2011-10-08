@@ -1,8 +1,10 @@
 class PartsController < ApplicationController
+  #caches_page :index
+
   # GET /parts
   # GET /parts.json
   def index
-    @parts = Part.order('updated_at desc').page params[:page]
+    @parts = Part.order("price_checked desc").includes(:manufacturer).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

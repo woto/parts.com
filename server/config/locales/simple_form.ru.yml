@@ -37,6 +37,7 @@ ru:
         catalog_number: Каталожный номер
         price_checked: Последняя проверка
         price_updated: Последнее обновление
+        title: Название
     hints:
       manufacturer:
         parts_com_id: ID производителя с parts.com

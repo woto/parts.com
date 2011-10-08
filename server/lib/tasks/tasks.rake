@@ -1,10 +1,8 @@
-# TODO разобраться почему нет доступа без require
-require 'extras/hidemyass_com_grabber.rb'
-
 namespace :app do
   desc "Получить список свежих прокси серверов с hidemyass.com"
-  task :hidemyass_com_grab => :environment do
-    Delayed::Job.enqueue HideMyAssGrabber.new
+  task :hide_my_ass_com_grabber => :environment do
+    Delayed::Job.enqueue HideMyAssComGrabber.new
+    puts DateTime.now.to_s + " hidemyass_com поставлен в очередь в Delayed Job"
   end
 
 #  desc "Узнать свой внешний ip адрес и записать в memcached"

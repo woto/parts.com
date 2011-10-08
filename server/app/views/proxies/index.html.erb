@@ -1,7 +1,7 @@
 <h1><%= t('Proxies') %></h1>
 
 <br />
-<%= paginate @proxies %>
+<%= will_paginate @proxies %>
 <br />
 
 <table>
@@ -22,9 +22,9 @@
     <td><%= l(proxy.timestamp, :format => :short) %></td>
     <td><%= proxy.ip %></td>
     <td><%= proxy.port %></td>
-    <td><%= proxy.country %></td>
+    <td><%= truncate(proxy.country, :length => 20) %></td>
     <td><%= proxy.good %></td>
-    <td><%= truncate(proxy.check) %></td>
+    <td><%= truncate(proxy.check, :length => 20) %></td>
     <td><%= link_to controls('Show'), proxy %></td>
     <td><%= link_to controls('Edit'), edit_proxy_path(proxy) %></td>
     <td><%= link_to controls('Destroy'), proxy, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -33,7 +33,7 @@
 </table>
 
 <br />
-<%= paginate @proxies %>
+<%= will_paginate @proxies %>
 <br />
 
 <%= link_to t('New proxy'), new_proxy_path %>

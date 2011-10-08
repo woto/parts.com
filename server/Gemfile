@@ -11,11 +11,11 @@ gem 'json'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
+#group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
-end
+#end
 
 gem 'jquery-rails'
 
@@ -40,7 +40,8 @@ gem 'ruby_parser'
 gem 'compass', '~> 0.12.alpha'
 gem 'carrierwave'
 gem 'fastercsv'
-gem 'kaminari'
+#gem 'kaminari', :git => 'https://github.com/cbeer/kaminari.git'
+gem 'will_paginate', '~> 3.0'
 gem 'date_validator'
 gem 'whenever'
 gem 'dalli'

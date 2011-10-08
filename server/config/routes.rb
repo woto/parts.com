@@ -8,7 +8,10 @@ Server::Application.routes.draw do
   post "processing" => "Processing#create", :as => 'processing_create'
   match 'gist' => 'gist#load', :as => :gist
 
-  resources :parts
+  resources :parts do
+    get 'page/:page', :action => :index, :on => :collection, :as => :page
+  end
+
 
   resources :manufacturers
 

@@ -1,5 +1,7 @@
-every 2.hours do
-  rake "app:hidemyass_com_grab"
+set :environment, "development"
+job_type :rake, "cd :path && RAILS_ENV=:environment bundle exec rake :task --silent >> log/whenever/:environment.log 2>&1"
+every 3.hours do
+  rake "app:hide_my_ass_com_grabber"
 end
 
 # Use this file to easily define all of your cron jobs.

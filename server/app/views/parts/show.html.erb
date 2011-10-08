@@ -1,8 +1,17 @@
+<% content_for :title do %>
+  <% "#{@part.catalog_number} #{@part.manufacturer.title} #{@part.title}" %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <b><%= t('Catalog number') %>:</b>
   <%= @part.catalog_number %>
+</p>
+
+<p>
+  <b><%= t('Part name') %>:</b>
+  <%= @part.title %>
 </p>
 
 <p>
@@ -12,7 +21,7 @@
 
 <p>
   <b><%= t('Price') %>:</b>
-  <%= @part.price %>
+  <%= number_to_currency(@part.price, :locale => :us) %>
 </p>
 
 <p>
